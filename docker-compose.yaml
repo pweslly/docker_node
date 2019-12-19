@@ -1,0 +1,21 @@
+version: "2"
+services:
+  node:
+    container_name: node
+    build:
+      context: ./app/
+      dockerfile: Dockerfile_node    
+    working_dir: /app
+    volumes:
+      - ./app:/app
+    expose:
+      - "8080"
+    ports:
+      - "8080:8080"
+    # Nessa parte tem que ter cuidado, aqui vai colocar comando de acordo com o que vai usar
+    # Nuxt de um jeito
+    # Vue.js de outro jeito
+    # React outro jeito
+    # Portanto use o comando certo para iniciar sua aplicação npm run o comando certo
+    command: >
+      sh -c "npm i && npm run develop"
